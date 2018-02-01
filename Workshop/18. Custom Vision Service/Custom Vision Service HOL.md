@@ -38,7 +38,7 @@ The following are required to complete this hands-on lab:
 <a name="Resources"></a>
 ### Resources ###
 
-[Click here](https://a4r.blob.core.windows.net/public/cvs-resources.zip) to download a zip file containing the resources used in this lab. Copy the contents of the zip file into a folder on your hard disk.
+[Click here](https://www.dropbox.com/sh/x3l1zk08sl5vi2i/AAAv4yNYPsqPgYCwyjwaJIDga?dl=0) for the folder containing the resources used in this lab. Download the Resources folder zip at that link to your computer.
 
 ---
 
@@ -75,7 +75,7 @@ The first step in building an image-classification model with the Custom Vision 
 
     _Creating a Custom Vision Service project_
 
-1. In the "New project" dialog, name the project "Artworks," ensure that **General** is selected as the domain, and click **Create project**.
+1. In the "New project" dialog, name the project "Not Hot Dog," ensure that **Food** is selected as the domain, and click **Create project**.
 
 	> A domain optimizes a model for specific types of images. For example, if your goal is to classify food images by the types of food they contain or the ethnicity of the dishes, then it might be helpful to select the Food domain. For scenarios that don't match any of the offered domains, or if you are unsure of which domain to choose, select the General domain.
 
@@ -88,13 +88,13 @@ The next step is to upload images to the project and assign tags to those images
 <a name="Exercise2"></a>
 ## Exercise 2: Upload tagged images ##
 
-In this exercise, you will add images of famous paintings by Picasso, Pollock, and Rembrandt to the Artworks project, and tag the images so the Custom Vision Service can learn to differentiate one artist from another.
+In this exercise, you will add images of foods that are hot dogs and not hot dogs to the Not Hot Dog project, and tag the images so the Custom Vision Service can learn to differentiate hot dogs and not hot dogs.
   
 1. Click **Add images** to add images to the project.
 
-	![Adding images to the Artworks project](Images/portal-click-add-images.png)
+	![Adding images to the Not Hot Dog project](Images/portal-click-add-images.png)
 
-    _Adding images to the Artworks project_ 
+    _Adding images to the Not Hot Dog project_ 
  
 1. Click **Browse local files**.
 
@@ -102,21 +102,21 @@ In this exercise, you will add images of famous paintings by Picasso, Pollock, a
 
     _Browsing for local images_ 
  
-1. Browse to the "Artists\Picasso" folder in the [resources that accompany this lab](https://a4r.blob.core.windows.net/public/cvs-resources.zip), select all of the files in the folder, and click **Open**.
+1. Browse to the "Resources\hotdogs" folder in the [resources that accompany this lab](https://www.dropbox.com/sh/x3l1zk08sl5vi2i/AAAv4yNYPsqPgYCwyjwaJIDga?dl=0), select all of the files in the folder, and click **Open**.
 
 	![Selecting an image](Images/fe-browse-picasso-01.png)
 
     _Selecting an image_ 
  
-1. Type "painting" (without quotation marks) into the **Add some tags...** box. Then click **+** to assign the tag to the images.
+1. Type "hot dog" (without quotation marks) into the **Add some tags...** box. Then click **+** to assign the tag to the images.
 
-	![Adding a "painting" tag to the images](Images/portal-add-tags-01.png)
+	![Adding a "hot dog" tag to the images](Images/portal-add-tags-01.png)
 
-    _Adding a "painting" tag to the images_ 
+    _Adding a "hot dog" tag to the images_ 
 
-1. Repeat Step 4 to add a "Picasso" tag to the images.
+1. Repeat Step 4 to add a "food" tag to the images.
 
-1. Click **Upload 7 files** to upload the images. Once the upload has completed, click **Done**.
+1. Click **Upload 11 files** to upload the images. Once the upload has completed, click **Done**.
 
 	![Uploading tagged images](Images/upload-picasso-images.png)
 
@@ -128,25 +128,19 @@ In this exercise, you will add images of famous paintings by Picasso, Pollock, a
 
     _The uploaded images_ 
 
-1. With seven Picasso images, the Custom Vision Service can do a decent job of identifying paintings by Picasso. But if you trained the model right now, it would only understand what a Picasso looks like, and it would not be able to identify paintings by other artists.
+1. With eleven hot dog images, the Custom Vision Service can do a decent job of identifying hot dogs. But if you trained the model right now, it would only understand what a hot dog looks like, and it would not be able to identify other food or not hot dogs.
 
-	The next step is to upload some paintings by another artist. Click **Add images** and select all of the images in the "Artists\Rembrandt" folder in the lab resources. Tag them with the labels "painting" and "Rembrandt" (not "Picasso"), and upload them to the project.
+	The next step is to upload some pictures of other food. Click **Add images** and select all of the images in the "Resources\nothotdog" folder in the lab resources. Tag them with the labels "not hot dog" and "food" (not "hot dog"), and upload them to the project.
 
-	> When you add the tag "painting," you don't have to type it in again. You can select it from the drop-down list attached to the **Add some tags...** box, as shown below. You **will** have to type "Rembrandt" and click **+** to add a "Rembrandt" tag.
+	> When you add the tag "food", you don't have to type it in again. You can select it from the drop-down list attached to the **Add some tags...** box, as shown below. You **will** have to type "not hot dog" and click **+** to add a "not hot dog" tag.
 
-	![Selecting an existing tag](Images/select-painting-tag.png)
+1. Confirm that the Not Hot Dog images appear alongside the Hot Dog images in the project, and that "Not Hot Dog" appears in the list of tags.
 
-    _Selecting an existing tag_ 
+	![Hot Dog and Not Hot Dog images](Images/portal-tagged-02.png)
 
-1. Confirm that the Rembrandt images appear alongside the Picasso images in the project, and that "Rembrandt" appears in the list of tags.
+    _Hot Dog and Not Hot Dog images_ 
 
-	![Picasso and Rembrandt images](Images/portal-tagged-02.png)
-
-    _Picasso and Rembrandt images_ 
-
-1. Now add paintings by the enigmatic artist Jackson Pollock to enable the Custom Vision Service to recognize Pollock paintings, too. Select all of the images in the "Artists\Pollock" folder in the lab resources, tag them with the terms "painting" and "Pollock", and upload them to the project.
-
-With the tagged images uploaded, the next step is to train the model with these images so it can distinguish between paintings by Picasso, Rembrandt, and Pollock, as well as determine whether a painting is a work by one of these famous artists.
+With the tagged images uploaded, the next step is to train the model with these images so it can distinguish between Hot Dogs and Not Hot Dogs. We can also add more tags so that it can classify Not Hot Dogs more specifically.
 
 <a name="Exercise3"></a>
 ## Exercise 3: Train the model ##
@@ -159,7 +153,7 @@ In this exercise, you will train the model using the images uploaded and tagged 
 
     _Training the model_
 
-1. Wait for the training process to complete. (It should only take a few seconds.) Then review the training statistics presented to you for iteration 1. **Precision** and **recall** are separate but related  measures of the model's accuracy. Suppose the model was presented with three Picassos and three Van Goghs, and that it correctly identified two of the Picassos as "Picasso" images, but incorrectly identified two of the Van Goghs as Picassos. In this case, the precision would be 50% (two of the four images it classified as Picassos are actually Picassos), while its recall would be 67% (it correctly identified two of the three Picasso images as Picassos). You can learn more about precision and recall from https://en.wikipedia.org/wiki/Precision_and_recall.
+1. Wait for the training process to complete. (It should only take a few seconds.) Then review the training statistics presented to you for iteration 1. **Precision** and **recall** are separate but related  measures of the model's accuracy. Suppose the model was presented with three Hot Dogs and three Not Hot Dogs, and that it correctly identified two of the Hot Dogs as "Hot Dog" images, but incorrectly identified two of the Not Hot Dogs as Hot Dogs. In this case, the precision would be 50% (two of the four images it classified as Hot Dogs are actually Hot Dogs), while its recall would be 67% (it correctly identified two of the three Hot Dog images as Hot Dogs). You can learn more about precision and recall from https://en.wikipedia.org/wiki/Precision_and_recall.
 
 	![Results of training the model](Images/portal-train-complete.png)
 
@@ -178,13 +172,13 @@ In [Exercise 5](#Exercise5), you will create a Node.js app that uses the model t
 
     _Testing the model_ 
 
-1. Click **Browse local files**, and then browse to the "Quick Tests" folder in the lab resources. Select **PicassoTest_01.jpg**, and click **Open**.
+1. Click **Browse local files**, and then browse to the "tests" folder in the lab resources. Select **test1.jpg**, and click **Open**.
 
-	![Selecting a Picasso test image](Images/portal-select-test-01.png)
+	![Selecting a Hot Dog test image](Images/portal-select-test-01.png)
 
-    _Selecting a Picasso test image_ 
+    _Selecting a Hot Dog test image_ 
 
-1. Examine the results of the test in the "Quick Test" dialog. What is the probability that the painting is a Picasso? What is the probability that it is a Rembrandt or Pollock?
+1. Examine the results of the test in the "Quick Test" dialog. What is the probability that the picture is a Hot Dog? What is the probability that it is a Food or Not Hot Dog?
 
 1. Close the "Quick Test" dialog. Then click **Predictions** at the top of the page.
  
@@ -192,7 +186,7 @@ In [Exercise 5](#Exercise5), you will create a Node.js app that uses the model t
 
     _Viewing the tests that have been performed_ 
 
-1. Click the test image that you uploaded to show a detail of it. Then tag the image as a "Picasso" by selecting **Picasso** from the drop-down list and clicking **Save and close**.
+1. Click the test image that you uploaded to show a detail of it. Then tag the image as a "Hot Dog" by selecting **Hot Dog** from the drop-down list and clicking **Save and close**.
 
 	> By tagging test images this way, you can refine the model without uploading additional training images.
  
@@ -200,14 +194,14 @@ In [Exercise 5](#Exercise5), you will create a Node.js app that uses the model t
 
     _Tagging the test image_ 
 
-1. Perform another quick test using the file named **FlowersTest.jpg** in the "Quick Test" folder. Confirm that this image is assigned a low probability of being a Picasso, a Rembrandt, or a Pollock.
+1. Perform another quick test using the file named **test2.jpg** in the "Quick Test" folder. Confirm that this image is assigned a low probability of being a Hot Dog.
 
-The model is trained and ready to go and appears to be adept at identifying paintings by certain artists. Now let's go a step further and incorporate the model's intelligence into an app.
+The model is trained and ready to go and appears to be adept at identifying Hot Dogs and Not Hot Dogs. Now let's go a step further and incorporate the model's intelligence into an app.
 
 <a name="Exercise5"></a>
 ## Exercise 5: Create a Node.js app that uses the model ##
 
-The true power of the Microsoft Custom Vision Service is the ease with which developers can incorporate its intelligence into their own applications using the [Custom Vision Prediction API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814). In this exercise, you will use Visual Studio Code to modify an app named Artwork to use the model you built and trained in previous exercises.
+The true power of the Microsoft Custom Vision Service is the ease with which developers can incorporate its intelligence into their own applications using the [Custom Vision Prediction API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814). In this exercise, you will use Visual Studio Code to modify an app named Not Hot Dog to use the model you built and trained in previous exercises.
 
 1. If Node.js isn't installed on your system, go to https://nodejs.org and install the latest LTS version for your operating system.
 
@@ -215,11 +209,11 @@ The true power of the Microsoft Custom Vision Service is the ease with which dev
 
 1. If Visual Studio Code isn't installed on your workstation, go to http://code.visualstudio.com and install it now.
 
-1. Start Visual Studio Code and select **Open Folder...** from the **File** menu. In the ensuing dialog, select the "Client\Artworks" folder included in the lab resources.
+1. Start Visual Studio Code and select **Open Folder...** from the **File** menu. In the ensuing dialog, select the "Resources\app" folder included in the lab resources.
 
-	![Selecting the Artworks folder](Images/fe-select-folder.png)
+	![Selecting the app folder](Images/fe-select-folder.png)
 
-    _Selecting the Artworks folder_ 
+    _Selecting the app folder_ 
 
 1. Use the **View** > **Integrated Terminal** command to open an integrated terminal window in Visual Studio Code. Then execute the following command in the integrated terminal to load the packages required by the app:
 
@@ -227,7 +221,7 @@ The true power of the Microsoft Custom Vision Service is the ease with which dev
 	npm install
 	```
 
-1. Return to the Artwork project in the Custom Vision Service portal, click **Performance**, and then click **Make default** to make sure the latest iteration of the model is the default iteration. 
+1. Return to the Not Hot Dog project in the Custom Vision Service portal, click **Performance**, and then click **Make default** to make sure the latest iteration of the model is the default iteration. 
 
 	![Specifying the default iteration](Images/portal-make-default.png)
 
@@ -281,50 +275,36 @@ The true power of the Microsoft Custom Vision Service is the ease with which dev
 	npm start
 	```
 
-1. Confirm that the Artworks app starts and displays a window like this one:
+1. Confirm that the Not Hot Dog app starts and displays a window like this one:
 
-	![The Artworks app](Images/app-startup.png)
+	![The Not Hot Dog app](Images/app-startup.png)
 
-    _The Artworks app_ 
+    _The Not Hot Dog app_ 
 
-Artworks is a cross-platform app written with Node.js and [Electron](https://electron.atom.io/). As such, it is equally capable of running on Windows, macOS, and Linux. In the next exercise, you will use it to classify images by the artists who painted them.
+NotHotDog is a cross-platform app written with Node.js and [Electron](https://electron.atom.io/). As such, it is equally capable of running on Windows, macOS, and Linux. In the next exercise, you will use it to classify images by the type of food it is: Hot Dog or Not Hot Dog.
 
 <a name="Exercise6"></a>
 ## Exercise 6: Use the app to classify images ##
 
-In this exercise, you will use the Artworks app to submit images to the Custom Vision Service for classification. The app uses the JSON information returned from calls to the Custom Vision Prediction API's [PredictImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814) method to tell you whether an image represents a painting by Picasso, Rembrandt, Pollock, or none of the above. It also shows the probability that the classification assigned to the image is correct.
+In this exercise, you will use the NotHotDog app to submit images to the Custom Vision Service for classification. The app uses the JSON information returned from calls to the Custom Vision Prediction API's [PredictImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814) method to tell you whether an image represents a Hot Dog, Not Hot Dog, Food or none of the above. It also shows the probability that the classification assigned to the image is correct.
 
-1. Click the **Browse (...)** button in the Artworks app. 
+1. Click the **Browse (...)** button in the NotHotDog app. 
 
-	![Browsing for local images in the Artworks app](Images/app-click-browse.png)
-
-    _Browsing for local images in the Artworks app_ 
-
-1. Browse to the "Quick Tests" folder in the lab resources. Select the file named **PicassoTest_02.jpg**, and then click **Open**.
+1. Browse to the "tests" folder in the lab resources. Select the file named **test3.jpg**, and then click **Open**.
 
 1. Click the **Predict** button to submit the image to the Custom Vision Service.
 
-	![Submitting the image to the Custom Vision Service](Images/app-click-predict.png)
+1. Confirm that the app identifies the image as a Hot Dog.
 
-    _Submitting the image to the Custom Vision Service_ 
+	![Classifying an image as a Hot Dog](Images/app-prediction-01.png)
 
-1. Confirm that the app identifies the painting as a Picasso.
+    _Classifying an image as a Hot Dog_ 
 
-	![Classifying an image as a Picasso](Images/app-prediction-01.png)
+1. Repeat steps 1 through 3 for **test4.jpg** and confirm that the app can identify images as Not Hot Dogs.
 
-    _Classifying an image as a Picasso_ 
+	![Classifying an image as a Not Hot Dog](Images/app-prediction-02.png)
 
-1. Repeat steps 1 through 3 for **RembrandtTest_01.jpg** and **PollockTest_01.jpg** and confirm that the app can identify paintings by Rembrandt and Pollock.
-
-	![Classifying an image as a Rembrandt](Images/app-prediction-02.png)
-
-    _Classifying an image as a Rembrandt_ 
-
-1. Repeat steps 1 through 3 for **VanGoghTest_01.png** and **VanGoghTest_02.png** and confirm that the app does not identify these Van Gogh masterworks as paintings by Picasso, Rembrandt, or Pollock.
-
-	![Not a Picasso, Rembrandt, or Pollock](Images/app-prediction-03.png)
-
-    _Not a Picasso, Rembrandt, or Pollock_ 
+    _Classifying an image as a Not Hot Dog_ 
 
 1. As you can see, using the Prediction API from an app is just as reliable as through the Custom Vision Service portal — and way more fun! What's more, if you go to the Predictions page in the portal, you'll find that each of the images uploaded via the app is shown there as well.
  
@@ -332,7 +312,7 @@ In this exercise, you will use the Artworks app to submit images to the Custom V
 
 	_Images submitted to the Custom Vision Service_ 
 
-Feel free to test with images of your own and gauge the model's adeptness at identifying artists or determining that an image is not a Picasso, Rembrandt, or Pollock. If you'd like to train it to recognize Van Goghs, too, simply upload some Van Gogh paintings, tag them with "Van Gogh," and retrain the model. There is no limit to the intelligence you can add if you're willing to do the training. And remember that in general, the more images you train with, the smarter the model will be.
+Feel free to test with images of your own and gauge the model's adeptness at identifying different foods or determining that an image is a hot dog or not hot dog. If you'd like to train it to recognize burgers too, simply upload some burger images, tag them with "burger", and retrain the model. There is no limit to the intelligence you can add if you're willing to do the training. And remember that in general, the more images you train with, the smarter the model will be.
 
 <a name="Summary"></a>
 ## Summary ##
