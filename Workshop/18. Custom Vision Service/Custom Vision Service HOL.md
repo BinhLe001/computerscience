@@ -14,7 +14,7 @@ The Custom Vision Service enables organizations to develop domain-specific image
 
 The Custom Vision Service exposes two APIs: the [Custom Vision Training API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3) and the [Custom Vision Prediction API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814). You can build, train, and test image-classification models using the [Custom Vision Service portal](https://www.customvision.ai/), or you can build, train, and test them using the Custom Vision Training API. Once a model is trained, you can use the Custom Vision Prediction API to build apps that utilize it. Both are REST APIs that are easily called from a variety of programming languages.
 
-In this lab, you will create a Custom Vision Service model, train it with images of famous paintings tagged with the artists' names, and utilize the model from a Node.js app to identify the artist of paintings that you upload. Along the way, you will learn how to train a Custom Vision Service model and leverage it from your apps using REST APIs.
+In this lab, you will create a Custom Vision Service model, train it with images of hot dogs and not hot dogs, and utilize the model from a Node.js app to identify the picture that you upload. Along the way, you will learn how to train a Custom Vision Service model and leverage it from your apps using REST APIs.
 
 <a name="Objectives"></a>
 ### Objectives ###
